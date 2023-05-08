@@ -1,0 +1,17 @@
+server:
+  address: localhost
+  port: 8080
+  error:
+    include-exception: true
+    include-message: always
+    include-binding-errors: never
+    include-stacktrace: never
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: postgres
+    url: jdbc:postgresql://localhost:5432/postgres
