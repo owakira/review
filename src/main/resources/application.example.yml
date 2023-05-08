@@ -15,3 +15,12 @@ spring:
     username: postgres
     password: postgres
     url: jdbc:postgresql://localhost:5432/postgres
+  flyway:
+    locations: classpath:db/migration
+    user: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+    enabled: true
+security:
+  password-strength: 12
