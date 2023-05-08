@@ -11,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping(UserController.REQUEST_ENDPOINT)
 @RequiredArgsConstructor
@@ -23,7 +25,7 @@ public class UserController {
     public final static String FIND_USER_BY_ID_ENDPOINT = "/{id}";
 
     @PostMapping(CREATE_USER)
-    public ResponseEntity<?> createUser(@RequestBody CreateUserRequest request) {
+    public ResponseEntity<?> createUser(@Valid @RequestBody CreateUserRequest request) {
         log.info("Create user. request={}", request);
         var dto = new CreateUserDTO(request.getEmail(), request.getUsername(), request.getPassword());
         var user = userService.createUser(dto);
